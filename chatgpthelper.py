@@ -47,7 +47,7 @@ s.listen(5)
 
 while True:
     clientsocket, address = s.accept()
-    print(f"Connection from {address} has been established!")
+#    print(f"Connection from {address} has been established!")
     request = ""
     def read():
         return clientsocket.recv(1024).decode('utf-8').split("\n")
@@ -58,7 +58,6 @@ while True:
             if line == "---":
                 loop = False
                 break
-            print("`%s`"%line)
             request += line
     data = json.loads(request)
     print(data)
